@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KATIK | Kalkulator Matematik</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="flex flex-row bg-white box-shadow-primary">
+      <a href="#">
+        <div id="header-logo"></div>
+      </a>
+    </header>
+
+    <main id="mainContainer" class="flex flex-column">
+      <div class="buttonTypeContainer flex flex-row">
+        <button
+          id="btnTypePersegi"
+          class="btnType box-shadow-secondary rounded-50 border-blue bg-white font-roboto font-blue font-bold font-size-14"
+          onclick="btnTypeHandle('persegi')"
+        >
+          Persegi
+        </button>
+        <button
+          id="btnTypePersegiPanjang"
+          class="btnType box-shadow-secondary rounded-50 border-blue bg-white font-roboto font-blue font-bold font-size-14"
+          onclick="btnTypeHandle('persegiPanjang')"
+        >
+          Persegi Panjang
+        </button>
+        <button
+          id="btnTypeLingkaran"
+          class="btnType box-shadow-secondary rounded-50 border-blue bg-white font-roboto font-blue font-bold font-size-14"
+          onclick="btnTypeHandle('lingkaran')"
+        >
+          Lingkaran
+        </button>
+        <button
+          id="btnTypeSegitiga"
+          class="btnType box-shadow-secondary rounded-50 border-blue bg-white font-roboto font-blue font-bold font-size-14"
+          onclick="btnTypeHandle('segitiga')"
+        >
+          Segitiga
+        </button>
+      </div>
+
+      <!-- Persegi -->
+      <div class="persegiContainer typeContainer flex flex-row justify-between">
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Luas Persegi
+            </h2>
+          </div>
+
+          <div class="imgContainer-persegi align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Luas Persegi:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">L = S x S</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">L = Luas</p>
+            <p class="font-roboto line-height-24">S = Sisi</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Luas Persegi</h3>
+            <p class="font-roboto font-bold margin-top-18">Sisi:</p>
+            <input
+              type="number"
+              id="hitungPersegiLuas"
+              name="hitungPersegiLuas"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilPersegiLuas" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase rounded no-border"
+              onclick="getHitung('persegiLuas')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('persegiLuas')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Keliling Persegi
+            </h2>
+          </div>
+
+          <div class="imgContainer-persegi align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Keliling Persegi:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">K = 4 x S</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">K = Keliling</p>
+            <p class="font-roboto line-height-24">S = Sisi</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Keliling Persegi</h3>
+            <p class="font-roboto font-bold margin-top-18">Sisi:</p>
+            <input
+              type="number"
+              id="hitungPersegiKeliling"
+              name="hitungPersegiKeliling"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilPersegiKeliling" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('persegiKeliling')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('persegiKeliling')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Persegi Panjang -->
+
+      <div
+        class="persegiPanjangContainer typeContainer flex flex-row justify-between"
+      >
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Luas Persegi Panjang
+            </h2>
+          </div>
+
+          <div class="imgContainer-persegiPanjang align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Luas Persegi Panjang:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">L = p x l</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">L = Luas</p>
+            <p class="font-roboto line-height-24">p = Panjang</p>
+            <p class="font-roboto line-height-24">l = Lebar</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Luas Persegi Panjang</h3>
+            <p class="font-roboto font-bold margin-top-18">Panjang:</p>
+            <input
+              type="number"
+              id="hitungPersegiPanjangLuasPanjang"
+              name="hitungPersegiPanjangLuasPanjang"
+              class="font-roboto"
+            />
+            <p class="font-roboto font-bold margin-top-18">Lebar:</p>
+            <input
+              type="number"
+              id="hitungPersegiPanjangLuasLebar"
+              name="hitungPersegiPanjangLuasLebar"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilPersegiPanjangLuas" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('persegiPanjangLuas')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('persegiPanjangLuas')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Keliling Persegi Panjang
+            </h2>
+          </div>
+
+          <div class="imgContainer-persegiPanjang align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Keliling Persegi Panjang:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">K = 2 x (p + l)</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">K = Keliling</p>
+            <p class="font-roboto line-height-24">p = Panjang</p>
+            <p class="font-roboto line-height-24">l = Lebar</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">
+              Hitung Keliling Persegi Panjang
+            </h3>
+            <p class="font-roboto font-bold margin-top-18">Panjang:</p>
+            <input
+              type="number"
+              id="hitungPersegiPanjangKelilingPanjang"
+              name="hitungPersegiPanjangKelilingPanjang"
+              class="font-roboto"
+            />
+            <p class="font-roboto font-bold margin-top-18">Lebar:</p>
+            <input
+              type="number"
+              id="hitungPersegiPanjangKelilingLebar"
+              name="hitungPersegiPanjangKelilingLebar"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilPersegiPanjangKeliling" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('persegiPanjangKeliling')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('persegiPanjangKeliling')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lingkaran -->
+      <div
+        class="lingkaranContainer typeContainer flex flex-row justify-between"
+      >
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Luas Lingkaran
+            </h2>
+          </div>
+
+          <div class="imgContainer-lingkaran align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Luas Lingkaran:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">L = &pi; x r x r</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">L = Luas</p>
+            <p class="font-roboto line-height-24">&pi; = Pi</p>
+            <p class="font-roboto line-height-24">r = Jari-Jari</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Luas Lingkaran</h3>
+            <p class="font-roboto font-bold margin-top-18">Jari-Jari:</p>
+            <input
+              type="number"
+              id="hitungLingkaranLuas"
+              name="hitungLingkaranLuas"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilLingkaranLuas" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('lingkaranLuas')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('lingkaranLuas')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Keliling Lingkaran
+            </h2>
+          </div>
+
+          <div class="imgContainer-lingkaran align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Keliling Lingkaran:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">K = 2 x &pi; x r</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">K = Keliling</p>
+            <p class="font-roboto line-height-24">&pi; = Pi</p>
+            <p class="font-roboto line-height-24">r = Jari-Jari</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Keliling Lingkaran</h3>
+            <p class="font-roboto font-bold margin-top-18">Jari-Jari:</p>
+            <input
+              type="number"
+              id="hitungLingkaranKeliling"
+              name="hitungLingkaranKeliling"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilLingkaranKeliling" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('lingkaranKeliling')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('lingkaranKeliling')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segitiga -->
+
+      <div
+        class="segitigaContainer typeContainer flex flex-row justify-between"
+      >
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Luas Segitiga
+            </h2>
+          </div>
+
+          <div class="imgContainer-segitiga align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Luas Segitiga:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">
+                L = &half; x a x t
+              </p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">L = Luas</p>
+            <p class="font-roboto line-height-24">a = Alas</p>
+            <p class="font-roboto line-height-24">t = Tinggi</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Luas Segitiga</h3>
+            <p class="font-roboto font-bold margin-top-18">Alas:</p>
+            <input
+              type="number"
+              id="hitungSegitigaAlas"
+              name="hitungSegitigaAlas"
+              class="font-roboto"
+            />
+            <p class="font-roboto font-bold margin-top-18">Tinggi:</p>
+            <input
+              type="number"
+              id="hitungSegitigaTinggi"
+              name="hitungSegitigaTinggi"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilSegitigaLuas" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('segitigaLuas')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('segitigaLuas')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-column bg-white box-shadow-secondary rounded">
+          <div class="title bg-blue rounded-t-lg">
+            <h2
+              class="font-roboto font-white font-bold uppercase align-center font-size-20"
+            >
+              Keliling Segitiga
+            </h2>
+          </div>
+
+          <div class="imgContainer-segitiga align-self-center"></div>
+
+          <div class="content">
+            <p class="font-roboto">Rumus Keliling Segitiga:</p>
+            <div class="rumus">
+              <p class="font-roboto font-bold align-center">K = a + b + c</p>
+            </div>
+            <p class="font-roboto line-height-24">Dimana:</p>
+            <p class="font-roboto line-height-24">K = Keliling</p>
+            <p class="font-roboto line-height-24">a = Sisi 1 Segitiga</p>
+            <p class="font-roboto line-height-24">b = Sisi 2 Segitiga</p>
+            <p class="font-roboto line-height-24">c = Sisi 3 Segitiga</p>
+          </div>
+
+          <div class="hitung">
+            <h3 class="font-roboto font-bold">Hitung Keliling Segitiga</h3>
+            <p class="font-roboto font-bold margin-top-18">Sisi 1:</p>
+            <input
+              type="number"
+              id="hitungSegitigaSisi1"
+              name="hitungSegitigaSisi1"
+              class="font-roboto"
+            />
+            <p class="font-roboto font-bold margin-top-18">Sisi 2:</p>
+            <input
+              type="number"
+              id="hitungSegitigaSisi2"
+              name="hitungSegitigaSisi2"
+              class="font-roboto"
+            />
+            <p class="font-roboto font-bold margin-top-18">Sisi 3:</p>
+            <input
+              type="number"
+              id="hitungSegitigaSisi3"
+              name="hitungSegitigaSisi3"
+              class="font-roboto"
+            />
+          </div>
+
+          <div id="hasilSegitigaKeliling" class="hasil"></div>
+
+          <div class="buttonContainer">
+            <button
+              class="btnHitung font-roboto font-white font-bold font-size-14 uppercase bg-green rounded no-border"
+              onclick="getHitung('segitigaKeliling')"
+            >
+              Hitung
+            </button>
+
+            <button
+              class="btnReset font-roboto font-white font-bold font-size-14 uppercase bg-red rounded no-border"
+              onclick="resetHasil('segitigaKeliling')"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      id="footerContainer"
+      class="flex flex-row justify-center box-shadow-secondary bg-white"
+    >
+      <p class="font-roboto font-bold align-center">
+        Dibuat oleh Rafly Irham Safatulloh | RevoU - Mini Project Website
+        Kalkulator Matematik
+      </p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
