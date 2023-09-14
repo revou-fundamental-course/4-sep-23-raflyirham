@@ -47,6 +47,20 @@ class Type {
     this.hide();
   }
 
+  result(res) {
+    this.show();
+
+    document.getElementById(this.elementId).style.display = "block";
+
+    if (document.getElementById(this.elementId).firstElementChild) {
+      document
+        .getElementById(this.elementId)
+        .removeChild(document.getElementById(this.elementId).firstElementChild);
+    }
+
+    document.getElementById(this.elementId).appendChild(res);
+  }
+
   hitung() {
     throw new Error("Method 'hitung()' harus diimplementasikan!");
   }
@@ -61,36 +75,12 @@ class PersegiLuas extends Type {
     let value = document.getElementById(this.inputId).value;
 
     if (!this.helper.checkHitung(value)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let valueInt = parseInt(value);
       let hasil = valueInt * valueInt;
 
@@ -98,7 +88,7 @@ class PersegiLuas extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `L = S x S\nL = ${valueInt} x ${valueInt}\nL = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 }
@@ -112,36 +102,12 @@ class PersegiKeliling extends Type {
     let value = document.getElementById(this.inputId).value;
 
     if (!this.helper.checkHitung(value)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let valueInt = parseInt(value);
       let hasil = 4 * valueInt;
 
@@ -149,7 +115,7 @@ class PersegiKeliling extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `K = 4 x S\nK = 4 x ${valueInt}\nK = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 }
@@ -165,36 +131,12 @@ class PersegiPanjangLuas extends Type {
     let value2 = document.getElementById(this.inputId2).value;
 
     if (!this.helper.checkHitung(value1) || !this.helper.checkHitung(value2)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let value1Int = parseInt(value1);
       let value2Int = parseInt(value2);
       let hasil = value1Int * value2Int;
@@ -203,7 +145,7 @@ class PersegiPanjangLuas extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `L = p x l\nL = ${value1Int} x ${value2Int}\nL = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 
@@ -223,36 +165,12 @@ class PersegiPanjangKeliling extends Type {
     let value2 = document.getElementById(this.inputId2).value;
 
     if (!this.helper.checkHitung(value1) || !this.helper.checkHitung(value2)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let value1Int = parseInt(value1);
       let value2Int = parseInt(value2);
       let hasil = 2 * (value1Int + value2Int);
@@ -261,7 +179,7 @@ class PersegiPanjangKeliling extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `K = 2 x (p + l)\nK = 2 x (${value1Int} + ${value2Int})\nK = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 
@@ -279,36 +197,12 @@ class LingkaranLuas extends Type {
     let value = document.getElementById(this.inputId).value;
 
     if (!this.helper.checkHitung(value)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let valueInt = parseInt(value);
       let hasil = Math.PI * (valueInt * valueInt);
       hasil = hasil.toFixed(2);
@@ -317,7 +211,7 @@ class LingkaranLuas extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `L = π x r x r\nL = π x ${valueInt} x ${valueInt}\nL = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 }
@@ -331,36 +225,12 @@ class LingkaranKeliling extends Type {
     let value = document.getElementById(this.inputId).value;
 
     if (!this.helper.checkHitung(value)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let valueInt = parseInt(value);
       let hasil = 2 * Math.PI * valueInt;
       hasil = hasil.toFixed(2);
@@ -369,7 +239,7 @@ class LingkaranKeliling extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `K = 2 x π x r\nK =2 x π x ${valueInt}\nK = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 }
@@ -385,36 +255,12 @@ class SegitigaLuas extends Type {
     let value2 = document.getElementById(this.inputId2).value;
 
     if (!this.helper.checkHitung(value1) || !this.helper.checkHitung(value2)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let value1Int = parseInt(value1);
       let value2Int = parseInt(value2);
       let hasil = 0.5 * value1Int * value2Int;
@@ -424,7 +270,7 @@ class SegitigaLuas extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `L = ½ x a x t\nL = ½ x ${value1Int} x ${value2Int}\nL = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
   resetSecond() {
@@ -449,54 +295,18 @@ class SegitigaKeliling extends Type {
       !this.helper.checkHitung(value2) ||
       !this.helper.checkHitung(value3)
     ) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else if (!this.helper.checkSegitiga(value1, value2, value3)) {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       const res = document.createElement("p");
       res.classList = "font-roboto font-red font-bold line-height-24";
 
       res.innerText = `Silakan masukkan angka dengan benar!\nPeriksa tiga sisi yang dimasukkan.`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     } else {
-      this.show();
-
-      document.getElementById(this.elementId).style.display = "block";
-
-      if (document.getElementById(this.elementId).firstElementChild) {
-        document
-          .getElementById(this.elementId)
-          .removeChild(
-            document.getElementById(this.elementId).firstElementChild
-          );
-      }
-
       let value1Int = parseInt(value1);
       let value2Int = parseInt(value2);
       let value3Int = parseInt(value3);
@@ -506,7 +316,7 @@ class SegitigaKeliling extends Type {
       res.classList = "font-roboto line-height-24";
 
       res.innerText = `K = a + b + c\nK = ${value1Int} + ${value2Int} + ${value3Int}\nK = ${hasil}`;
-      document.getElementById(this.elementId).appendChild(res);
+      this.result(res);
     }
   }
 
